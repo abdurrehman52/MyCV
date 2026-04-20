@@ -1,92 +1,108 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import { Mail, MapPin, Github, Linkedin } from "lucide-react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My CV</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    text-align: center;
+  }
 
-export default function CVPortfolio() {
-  return (
-    <div className="min-h-screen bg-gray-950 text-white p-6">
-      {/* Hero Section */}
-      <div className="max-w-4xl mx-auto text-center py-16">
-        <motion.h1 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-5xl font-bold"
-        >
-          Your Name
-        </motion.h1>
-        <p className="text-gray-400 mt-3 text-lg">
-          Web Developer | Designer | Freelancer
-        </p>
+  .container {
+    padding: 60px 20px;
+  }
 
-        <div className="flex justify-center gap-4 mt-6 flex-wrap">
-          <Button variant="secondary">
-            <Mail className="w-4 h-4 mr-2" /> Email Me
-          </Button>
-          <Button variant="secondary">
-            <Github className="w-4 h-4 mr-2" /> GitHub
-          </Button>
-          <Button variant="secondary">
-            <Linkedin className="w-4 h-4 mr-2" /> LinkedIn
-          </Button>
-        </div>
-      </div>
+  h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
 
-      {/* About Section */}
-      <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
-        <Card>
-          <CardContent className="p-6">
-            <h2 className="text-2xl font-semibold mb-2">About Me</h2>
-            <p className="text-gray-400">
-              I am a passionate web developer skilled in building modern, responsive, and user-friendly websites. I love turning ideas into reality using code.
-            </p>
-          </CardContent>
-        </Card>
+  p {
+    color: #cbd5e1;
+    font-size: 18px;
+  }
 
-        <Card>
-          <CardContent className="p-6">
-            <h2 className="text-2xl font-semibold mb-2">Details</h2>
-            <p className="text-gray-400 flex items-center gap-2">
-              <MapPin className="w-4 h-4" /> Your City, Country
-            </p>
-            <p className="text-gray-400 mt-2">Open to freelance work</p>
-          </CardContent>
-        </Card>
-      </div>
+  .buttons {
+    margin-top: 25px;
+  }
 
-      {/* Skills */}
-      <div className="max-w-4xl mx-auto mt-10">
-        <h2 className="text-3xl font-semibold mb-4">Skills</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {["HTML", "CSS", "JavaScript", "React", "PHP", "MySQL", "Node.js", "Git"].map((skill) => (
-            <div key={skill} className="bg-gray-800 p-3 rounded-xl text-center">
-              {skill}
-            </div>
-          ))}
-        </div>
-      </div>
+  .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
 
-      {/* Projects */}
-      <div className="max-w-4xl mx-auto mt-10">
-        <h2 className="text-3xl font-semibold mb-4">Projects</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {["Portfolio Website", "E-commerce App"].map((project) => (
-            <Card key={project}>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold">{project}</h3>
-                <p className="text-gray-400 mt-2">
-                  A modern project built with latest web technologies.
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
+  .view {
+    background: #3b82f6;
+    color: white;
+  }
 
-      {/* Footer */}
-      <div className="text-center text-gray-500 mt-16 py-6">
-        © 2026 Your Name. All rights reserved.
-      </div>
-    </div>
-  );
-}
+  .download {
+    background: #22c55e;
+    color: white;
+  }
+
+  .btn:hover {
+    transform: scale(1.05);
+  }
+
+  .cv-box {
+    margin-top: 50px;
+    display: none;
+  }
+
+  iframe {
+    width: 80%;
+    height: 600px;
+    border: none;
+    border-radius: 10px;
+  }
+
+  footer {
+    margin-top: 50px;
+    color: #94a3b8;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Your Name</h1>
+  <p>Web Developer | Designer | Freelancer</p>
+
+  <div class="buttons">
+    <!-- VIEW CV -->
+    <a href="#cv" class="btn view">View CV</a>
+
+    <!-- DOWNLOAD CV -->
+    <a href="AR CV.pdf" download class="btn download">Download CV</a>
+  </div>
+
+  <!-- CV VIEW SECTION -->
+  <div id="cv" class="cv-box">
+    <h2>My CV Preview</h2>
+    <iframe src="AR CV.pdf"></iframe>
+  </div>
+
+  <footer>
+    © 2026 Your Name. All rights reserved.
+  </footer>
+</div>
+
+<script>
+  document.querySelector(".view").addEventListener("click", function () {
+    document.getElementById("cv").style.display = "block";
+  });
+</script>
+
+</body>
+</html>
