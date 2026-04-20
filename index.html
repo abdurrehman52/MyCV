@@ -1,16 +1,92 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>My CV</title>
-</head>
-<body style="text-align:center; font-family:Arial;">
-  <h1>My CV</h1>
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Mail, MapPin, Github, Linkedin } from "lucide-react";
 
-  <p>Click below to view/download my CV</p>
+export default function CVPortfolio() {
+  return (
+    <div className="min-h-screen bg-gray-950 text-white p-6">
+      {/* Hero Section */}
+      <div className="max-w-4xl mx-auto text-center py-16">
+        <motion.h1 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-5xl font-bold"
+        >
+          Your Name
+        </motion.h1>
+        <p className="text-gray-400 mt-3 text-lg">
+          Web Developer | Designer | Freelancer
+        </p>
 
-  <a href="AR%20CV.pdf" target="_blank">
-    📄 Open CV
-  </a>
+        <div className="flex justify-center gap-4 mt-6 flex-wrap">
+          <Button variant="secondary">
+            <Mail className="w-4 h-4 mr-2" /> Email Me
+          </Button>
+          <Button variant="secondary">
+            <Github className="w-4 h-4 mr-2" /> GitHub
+          </Button>
+          <Button variant="secondary">
+            <Linkedin className="w-4 h-4 mr-2" /> LinkedIn
+          </Button>
+        </div>
+      </div>
 
-</body>
-</html>
+      {/* About Section */}
+      <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+        <Card>
+          <CardContent className="p-6">
+            <h2 className="text-2xl font-semibold mb-2">About Me</h2>
+            <p className="text-gray-400">
+              I am a passionate web developer skilled in building modern, responsive, and user-friendly websites. I love turning ideas into reality using code.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-6">
+            <h2 className="text-2xl font-semibold mb-2">Details</h2>
+            <p className="text-gray-400 flex items-center gap-2">
+              <MapPin className="w-4 h-4" /> Your City, Country
+            </p>
+            <p className="text-gray-400 mt-2">Open to freelance work</p>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Skills */}
+      <div className="max-w-4xl mx-auto mt-10">
+        <h2 className="text-3xl font-semibold mb-4">Skills</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {["HTML", "CSS", "JavaScript", "React", "PHP", "MySQL", "Node.js", "Git"].map((skill) => (
+            <div key={skill} className="bg-gray-800 p-3 rounded-xl text-center">
+              {skill}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Projects */}
+      <div className="max-w-4xl mx-auto mt-10">
+        <h2 className="text-3xl font-semibold mb-4">Projects</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          {["Portfolio Website", "E-commerce App"].map((project) => (
+            <Card key={project}>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold">{project}</h3>
+                <p className="text-gray-400 mt-2">
+                  A modern project built with latest web technologies.
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="text-center text-gray-500 mt-16 py-6">
+        © 2026 Your Name. All rights reserved.
+      </div>
+    </div>
+  );
+}
