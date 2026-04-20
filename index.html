@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>My CV</title>
+
 <style>
   body {
     margin: 0;
@@ -24,6 +25,13 @@
   p {
     color: #cbd5e1;
     font-size: 18px;
+  }
+
+  .contact a {
+    display: block;
+    margin: 8px;
+    color: #60a5fa;
+    text-decoration: none;
   }
 
   .buttons {
@@ -76,26 +84,32 @@
 <body>
 
 <div class="container">
+
   <h1>Abdur Rehman</h1>
   <p>Web Developer | Designer | Freelancer | Data Engineer | Data Analyst</p>
 
-  <div class="buttons">
-    <!-- VIEW CV -->
-    <a href="#cv" class="btn view">View CV</a>
+  <!-- CONTACT -->
+  <div class="contact">
+    <a href="mailto:abdurrehman0702@gmail.com">📧 abdurrehman0702@gmail.com</a>
+    <a href="tel:03477204950">📞 03477204950</a>
+  </div>
 
-    <!-- DOWNLOAD CV -->
+  <!-- BUTTONS -->
+  <div class="buttons">
+    <a href="#cv" class="btn view">View CV</a>
     <a href="AR CV.pdf" download class="btn download">Download CV</a>
   </div>
 
-  <!-- CV VIEW SECTION -->
+  <!-- CV VIEW -->
   <div id="cv" class="cv-box">
     <h2>My CV Preview</h2>
     <iframe src="AR CV.pdf"></iframe>
   </div>
 
   <footer>
-    © 2026 Your Name. All rights reserved.
+    © 2026 Abdur Rehman. All rights reserved.
   </footer>
+
 </div>
 
 <script>
